@@ -334,17 +334,47 @@ int add(int ,int =0,int =0);
     3.order of input arguments
     4.No of input arguments
   - In function overloading to have different signature  either type of arguments,order of arguments or no of arguments should be different.
+- Here we have same name but type of arguments are different :
 ```cpp
-
-  
-
-
-
-
-
-
-
-
+int add(int a,int b){
+        return a+b;
+}
+double add(double a,double b){
+        return a+b;
+}
+```
+- Here we have different number of arguments are different :
+```cpp
+int add(int a,int b,int c){
+        return a+b+c;
+}
+int add(int a,int b){
+        return a+b;
+}
+```
+- Here order of arguments are different :
+```cpp
+#include<iostream>
+using namespace std;
+int add(int a,float b){
+        return a+b;
+}
+float add(float a,int b){
+        return a+b;
+}
+```
+- Here this example cannot be overloaded :
+```cpp
+int add(int a,float b){
+        return a+b;
+}
+float add(int a,float b){
+        return a+b;
+}
+```
+- call by value and call by address can be overloaded.
+- call by reference and call by address can be overloaded.
+- call by reference and call by value cannot be overloaded.
 
 ## Storage classes :
 - In C we have 4 types of storage classes.
