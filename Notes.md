@@ -252,20 +252,20 @@ int &z;
 - By default members of the structure are public in nature ,so we go with class datatype.
 
 - In C++ encapsulation is implemented using structures and classes.
-#### What is encapsulation?
+### What is encapsulation?
 - Binding of data and its related functionalites into a single entity is called Encapsulation.
 
-#### Class :
+## Class :
 - A class is a userdefined datatype , which is combination varaibles and functions.
 - Variables inside the class are called as Datamembers
 - Functions of a class are called member functions
 - Both together are called as members of the class.
 
-#### What is a class ?
+### What is a class ?
 - A class is a blue of an object.
 - A class is a logical representation of an object.
 
-#### What is an object ?
+### What is an object ?
 - An object is an instant of a class.
 - An object is a physical entity of a class.
 #### Class and Objects Example
@@ -332,6 +332,133 @@ ClassName objectName;
 - The size of an object is equal to the sum of the sizes of all its data members, except when there is padding or alignment added by the compiler for memory efficiency.
 
 
+- Data Members and members functions inside the member functions belongs to current calling object.
+### What is calling object?
+- An object which is invoking the member function is called calling object.
+```cpp
+int main()
+{
+    Bank myacc;             // (A) myacc is a stack object (automatic storage)
+    Bank *ptr;              // pointer variable (uninitialized)
+    ptr = &myacc;           // ptr now points to the stack object myacc
+    ptr->CreateAcc();       // calling CreateAcc() on the object pointed by ptr (myacc)
+    ptr->Menu();            // same as myacc.Menu()
+
+    Bank *q;
+    q = new Bank;           // (B) allocate a Bank object on the heap; constructor is called
+    q->CreateAcc();         // calling on heap object
+    q->Menu();
+    delete q;               // destructor called; memory freed
+
+    Bank *r;
+    r = (Bank *)malloc(sizeof(Bank)); // (C) allocate raw memory, NO constructor called
+    r->CreateAcc();          // **Undefined/unsafe** if CreateAcc expects object properly constructed
+    r->Menu();
+    free(r);                 // frees memory, but destructor NOT called
+}
+```
+
+### Array of Objects in C++
+
+An **array of objects** is a collection of objects of the same class, stored in contiguous memory locations.
+
+#### Syntax:
+```cpp
+ClassName arrayName[size];
+```
+- Ex : student DB[5];
+- DB[0] is an object
+- DB[1] is an object
+- DB[2] is an object
+- DB[3] is an object
+- DB[4] is an object
+
+### Syntax to Define Member Function Outside the Class
+
+```cpp
+return_type ClassName :: functionName(parameter_list)
+{
+    // function body
+}
+```
+## Constructors in C++ :
+
+A **constructor** is a special member function used to **initialize an object at the time it is created**.
+
+### Points to note
+- The **constructor name is the same as the class name**.
+- A constructor **must not** have a return type (not even `void`).
+- Constructors are usually declared as `public` so objects can be created from outside the class.
+- If you do not provide any constructor, the **compiler supplies a default constructor** (called the *implicit default constructor*).
+
+---
+
+## Types of constructors
+1. **Default constructor**  
+2. **Parameterized constructor**  
+3. **Copy constructor**
+
+---
+
+## 1. Default constructor
+- A constructor without parameters is called a **default constructor**.
+- Note : An unitialized object always invokes or demands default constructor.
+- When none of the constructors are supplied by the programmer complier will supply a default constructor for namesake.
+- Invoked when you create an object with no arguments:  
+```cpp
+  Complex e1;     // default constructor called
+  Rectangle r1;   // default constructor called
+```
+
+## 2.Parameterized constructor 
+- A constructor that takes arguments is a parameterized constructor.
+- Ex : complex e1(10,30);
+
+## 3. Copy Constructor :
+- A constructor whose input arguments or formal arguments is a reference to same class object is calles copy constructor.
+- Copy constructors are invoked when we assign an exixting object to a newly created object at the time of itys declarations.
+- Ex : complex e1
+       complex e2=e1; // e2.complex(e1);
+## Complete combined example (Default, Parameterized, Copy) :
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int roll;
+    string name;
+public:
+    // Default constructor
+    Student() : roll(0), name("unknown") {
+        cout << "Student default ctor\n";
+    }
+
+    // Parameterized constructor
+    Student(int r, const string &n) : roll(r), name(n) {
+        cout << "Student param ctor\n";
+    }
+
+    // Copy constructor
+    Student(const Student &s) : roll(s.roll), name(s.name) {
+        cout << "Student copy ctor\n";
+    }
+
+    void show() const {
+        cout << "Roll: " << roll << ", Name: " << name << "\n";
+    }
+};
+
+int main() {
+    Student s1;               // default
+    Student s2(101, "Sara");  // parameterized
+    Student s3 = s2;          // copy
+    s1.show();
+    s2.show();
+    s3.show();
+    return 0;
+}
+```
  
 
 
