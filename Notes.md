@@ -30,15 +30,18 @@
 - Strongly typed Programming language.
 
 ## Structure of c++ :
-- int scanf(const char *,...);               cin>>
-- cin = istream class predefined object      >> = extraction operator
-- ex : scanf("%d",&x);                       cin>>x;
-- scanf("%d %s %f",&x,&s,&v);                cin>>x>>s>>v;
-
-- int printf(const char *,...)                cout<<x;
-- cout = ostream class predefined object     << = Insertion operator
-- ex : printf("hello");                      cout<<"hello";
-- printf("%d",x);                            cout<<x;
+| **Concept**                  | **C (stdio.h)**                        | **C++ (iostream)**                              |
+| ---------------------------- | -------------------------------------- | ----------------------------------------------- |
+| **Input Function**           | `int scanf(const char *format, ...);`  | `cin >> variable;`                              |
+| **Object Used for Input**    | —                                      | `cin` → predefined object of **istream** class  |
+| **Operator Used for Input**  | —                                      | `>>` → **Extraction operator**                  |
+| **Example 1**                | `scanf("%d", &x);`                     | `cin >> x;`                                     |
+| **Example 2**                | `scanf("%d %s %f", &x, &s, &v);`       | `cin >> x >> s >> v;`                           |
+| **Output Function**          | `int printf(const char *format, ...);` | `cout << variable;`                             |
+| **Object Used for Output**   | —                                      | `cout` → predefined object of **ostream** class |
+| **Operator Used for Output** | —                                      | `<<` → **Insertion operator**                   |
+| **Example 1**                | `printf("Hello");`                     | `cout << "Hello";`                              |
+| **Example 2**                | `printf("%d", x);`                     | `cout << x;`                                    |
 
 ## Datatypes :
 - datatypes are two types :
