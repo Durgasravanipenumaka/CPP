@@ -247,10 +247,9 @@ int &z;
 - Access specifiers decides who can access them.
 - Types of access specifiers
 - we have 3 types of access specifiers :
-- 1.public
-- 2.private
-- 3.protected
-
+    1.public
+    2.private
+    3.protected
 - private members are accessible only by the members of the structure or class.
 - protected members are accessible only by the members and child of the class or structure.
 - public members are accessible by members and non members.
