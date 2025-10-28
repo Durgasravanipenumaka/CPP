@@ -224,11 +224,11 @@ int &z;
 ## Storage classes :
 - In C we have 4 types of storage classes.
 - In C++ we have 5 storage classes.
-- 1.auto
-- 2.register
-- 3.static
-- 4.extern
-- 5.mutable -> applicable only to the data memmbers of a class.
+    1.auto
+    2.register
+    3.static
+    4.extern
+    5.mutable -> applicable only to the data memmbers of a class.
 
 ## Structures :
 ### Difference Between C and C++ Structures : 
