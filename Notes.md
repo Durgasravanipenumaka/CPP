@@ -1,16 +1,18 @@
 ## What is the difference between c and cpp ?
-### C :
-- C is a Procedural (Structured) Programming Language .
-- It focus mainly on functions and procedures.
-- It follows Top-down approach(divide the program into smaller functions).
-- OOPs concept is not supported.
-- Less secure.
-### C++ :
-- CPP is a Object-Oriented Programming Language (OOP).
-- It mainly focus on objects and classes.
-- It follows bottom-ip approach(combine data and functions into objects).
-- It supports OOP — classes, inheritance, polymorphism, abstraction, encapsulation.
-- More secure — data can be hidden inside classes using access specifiers (private, protected, public).
+| **Feature**              | **C**                                                          | **C++**                                                                                         |
+| ------------------------ | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Programming Paradigm** | Procedural (Structured) Programming Language                   | Object-Oriented Programming Language (OOP)                                                      |
+| **Main Focus**           | Focuses on functions and procedures                            | Focuses on objects and classes                                                                  |
+| **Approach**             | Follows **Top-down** approach (program divided into functions) | Follows **Bottom-up** approach (combine data and functions into objects)                        |
+| **OOP Support**          | Does **not** support OOP concepts                              | Supports OOP — **classes, inheritance, polymorphism, abstraction, encapsulation**               |
+| **Security**             | Less secure — no data hiding                                   | More secure — data can be hidden using **access specifiers** (`private`, `protected`, `public`) |
+| **Function Overloading** | Not supported                                                  | Supported                                                                                       |
+| **Encapsulation**        | Not supported                                                  | Supported                                                                                       |
+| **Inheritance**          | Not supported                                                  | Supported                                                                                       |
+| **Polymorphism**         | Not supported                                                  | Supported                                                                                       |
+| **Namespace Feature**    | Not available                                                  | Available                                                                                       |
+| **File Extension**       | `.c`                                                           | `.cpp`                                                                                          |
+
 
 ## Characteristics Of C++ :
 - OOPs
