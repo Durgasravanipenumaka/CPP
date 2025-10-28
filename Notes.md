@@ -216,7 +216,127 @@ int &z;
 #### call by reference :
 - In call by reference ,formal arguments are references of the actual arguments, so formal arguments doesnot consume extra memory they refer to the actual arguments memoty blocks,so,whatever we modify on formal arguments they reflect on actual arguments.
 - function call,function definition are same as call by value.
+```cpp
+#include<iostream>
+using namespace std;
+void inc(int &a){
+        ++a;
+}
+int main(){
+        int num=10;
+        cout<<num<<endl;
+        inc(num);
+        cout<<num;
+}
+```
+```cpp
+#include<iostream>
+using namespace std;
+struct st{
+        int roll;
+        char name[20];
+        float marks;
+        char mobileno[20];
+};
+void input(struct st &v){
+        cout<<"Enter the roll no :";
+        cin>>v.roll;
+        cout<<"Enter the name : ";
+        cin>>v.name;
+        cout<<"Enter the marks : ";
+        cin>>v.marks;
+        cout<<"Enter the mobileno : ";
+        cin>>v.mobileno;
+}
+void print(struct st &v){
+        cout<<v.roll<<endl;
+        cout<<v.name<<endl;
+        cout<<v.marks<<endl;
+        cout<<v.mobileno<<endl;
+}
+int main(){
+        struct st var;
+        input(var);
+        print(var);
+}
+```
+## Return type as reference :
+```cpp
+#include<iostream>
+using namespace std;
+int & add(int a,int b){
+        int c;
+        c=a+b;
+        return c;
+}
+int main(){
+        int n1=10,n2=20,n3;
+        n3=add(n1,n2);
+        cout<<"Sum="<<n3<<endl;
+}
+```
+- In above call by reference we returning the reference of local variable, so leads to segmentation fault.
+- To make c alive we should declare c as static
+### Corrected code :
+```cpp
+#include<iostream>
+using namespace std;
+int & add(int a,int b){
+        static int c;
+        c=a+b;
+        return c;
+}
+int main(){
+        int n1=10,n2=20,n3;
+        n3=add(n1,n2);
+        cout<<"Sum="<<n3<<endl;
+}
+```
 
+- Default arguments to a function will avoid duplication of the codes when no of input arguments are different.
+## where to supply the default values to the function ?
+In function declaration.
+## What should be default values ?
+Any thing or any value based on our requirement.
+ex:
+```cpp
+#include<iostream>
+using namespace std;
+int add(int,int,int =0,int =0,int =0);
+int main(){
+        cout<<add(10,20)<<endl;
+        cout<<add(5,10,15)<<endl;
+        cout<<add(10,20,30,40)<<endl;
+}
+int add(int a,int b,int c,int d,int e){
+        return a+b+c+d+e;
+}
+```
+- To make any argument as default argument ,we have to make sure arguments on the right side of it all should be default arguments.
+```cpp
+int add(int a,int b,int c){
+       return a+b+c;
+}
+int add(int ,int,int=0);
+int add(int ,int =0,int =0);
+```
+
+- In this example ,to make 'b' as a default argument 'c' must be default argument.
+- simillarly ,to make 'a' as default argument 'b' and 'c' must be a default argument.
+- Whybecause mapping of actual arguments to formal arguments are done from left to right.
+
+## Function Overloading :
+- Function overloading is a compile time polymorphism which is used to give same name to more than one function with different signatures.
+## What is function signature ?
+- function signature is formed by
+    1.Function name
+    2.Type of input arguments
+    3.order of input arguments
+    4.No of input arguments
+  - In function overloading to have different signature  either type of arguments,order of arguments or no of arguments should be different.
+```cpp
+
+  
 
 
 
