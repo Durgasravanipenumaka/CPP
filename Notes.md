@@ -576,43 +576,51 @@ A **constructor** is a special member function used to **initialize an object at
 ## Complete combined example (Default, Parameterized, Copy) :
 ```cpp
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Student {
     int roll;
-    string name;
+    int marks;
+
 public:
     // Default constructor
-    Student() : roll(0), name("unknown") {
-        cout << "Student default ctor\n";
+    Student() {
+        roll = 0;
+        marks = 0;
+        cout << "Default constructor called\n";
     }
 
     // Parameterized constructor
-    Student(int r, const string &n) : roll(r), name(n) {
-        cout << "Student param ctor\n";
+    Student(int r, int m) {
+        roll = r;
+        marks = m;
+        cout << "Parameterized constructor called\n";
     }
 
     // Copy constructor
-    Student(const Student &s) : roll(s.roll), name(s.name) {
-        cout << "Student copy ctor\n";
+    Student(const Student &s) {
+        roll = s.roll;
+        marks = s.marks;
+        cout << "Copy constructor called\n";
     }
 
-    void show() const {
-        cout << "Roll: " << roll << ", Name: " << name << "\n";
+    void show() {
+        cout << "Roll: " << roll << ", Marks: " << marks << endl;
     }
 };
 
 int main() {
-    Student s1;               // default
-    Student s2(101, "Sara");  // parameterized
-    Student s3 = s2;          // copy
+    Student s1;            // default constructor
+    Student s2(10, 95);    // parameterized constructor
+    Student s3 = s2;       // copy constructor
+
+    cout << "\nStudent details:\n";
     s1.show();
     s2.show();
     s3.show();
-    return 0;
 }
 ```
+
  
 
 
