@@ -44,14 +44,17 @@
 - 2.Secondary datatype
    - Derived datatype
    - User defined datatype
-### 1.Primary datatype :          Derived datatype :          User-defined datatypes :
-- char                            - Arrays                    - Structures
-- int                             - strings                   - Unions
-- float                           - pointers                  - enums
-- double                                                      - Typedef
-- wchar_t                                                     - class
-- bool
-- string
+
+| **Primary Datatypes** | **Derived Datatypes** | **User-defined Datatypes** |
+|------------------------|-----------------------|-----------------------------|
+| char                  | Arrays                | Structures                  |
+| int                   | Strings               | Unions                      |
+| float                 | Pointers              | enums                       |
+| double                |                       | typedef                     |
+| wchar_t               |                       | Class                       |
+| bool                  |                       |                             |
+| string                |                       |                             |
+
 
 - unicode table -> unisersal code table, which contains the symbols of all the languages which are world wisely certified.
 
@@ -96,7 +99,7 @@ string s2="Viven";
 #### new : 
 - Syntax : pointer = new datatype(value)
 - ex :
-```c
+```cpp
 int *p = new int(123);
 char *c = new char ch='D';
 struct st *q;
@@ -104,7 +107,7 @@ q = new struct st;
 ```
 - new syntax to create the array :
 - pointer = new int[size];
-```c
+```cpp
 int *p = new int[5];
 double *q = new int[5];
 int **input(int **q,int r,int c){
@@ -120,7 +123,7 @@ int **input(int **q,int r,int c){
 ```
 #### delete :
 - syntax : delete pointer
-```c
+```cpp
 int main(){
         int *p;
         p=new int;
@@ -131,7 +134,7 @@ int main(){
 }
 ```
 - For dellaoction of memory :
-```c
+```cpp
 for(int i=0;i<r;i++){
       delete[] q[i];
 }
@@ -141,7 +144,7 @@ for(int i=0;i<r;i++){
 - Reference variable is an alias name given to the existing variables or constants.
 - Syntax : datatype &refname = existingname;
 - Ex :
-```c
+```cpp
 int num=10;
 int &ref = num;
 cout<<ref; -> 120
@@ -152,7 +155,7 @@ char &c = ch;
 #### Points to be noted about references :
 - 1.References can be created only existing variables and constants,
 - Ex :
-```c
+```cpp
 int n = 10;
 int &r = n;    //correct
 
@@ -163,7 +166,7 @@ int &r=a;     //wrong
 
 ```
 - 2.Reference must be unintialized at the time of its declaration.
-```c
+```cpp
 int a;   
 int &z;
 &z=a;    //Invalid
@@ -216,6 +219,120 @@ int &z;
 
 
 
+
+
+## Storage classes :
+- In C we have 4 types of storage classes.
+- In C++ we have 5 storage classes.
+- 1.auto
+- 2.register
+- 3.static
+- 4.extern
+- 5.mutable -> applicable only to the data memmbers of a class.
+
+## Structures :
+### Difference Between C and C++ Structures : 
+
+| **C Structures** | **C++ Structures** |
+|------------------|--------------------|
+| C structures are a collection of only data members. | C++ structures are a collection of data members and their related functions. |
+| C structures do not support any access specifiers. | C++ structures support access specifiers. |
+
+### What is the role of access specifiers ?
+- Access specifiers decides who can access them.
+- Types of access specifiers
+- we have 3 types of access specifiers :
+- 1.public
+- 2.private
+- 3.protected
+
+- private members are accessible only by the members of the structure or class.
+- protected members are accessible only by the members and child of the class or structure.
+- public members are accessible by members and non members.
+- By default members of the structure are public in nature ,so we go with class datatype.
+
+- In C++ encapsulation is implemented using structures and classes.
+#### What is encapsulation?
+- Binding of data and its related functionalites into a single entity is called Encapsulation.
+
+#### Class :
+- A class is a userdefined datatype , which is combination varaibles and functions.
+- Variables inside the class are called as Datamembers
+- Functions of a class are called member functions
+- Both together are called as members of the class.
+
+#### What is a class ?
+- A class is a blue of an object.
+- A class is a logical representation of an object.
+
+#### What is an object ?
+- An object is an instant of a class.
+- An object is a physical entity of a class.
+#### Class and Objects Example
+
+| **Class**   | **Objects**                |
+|--------------|-----------------------------|
+| Fruit        | apple, banana, mango, grape |
+| Vegetable    | onion, tomato, potato       |
+| Flower       | rose, lily, jasmine         |
+
+### Syntax to Create a Class in C++
+
+```cpp
+class ClassName
+{
+    access_specifier:
+        // data members
+        // member functions
+};
+```
+### Example: Class in C++
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Bank
+{
+    int accno;
+    char name[20];
+    float bal;
+
+public:
+    void Deposit(float amt)
+    {
+        // code to deposit amount
+        bal += amt;
+    }
+
+    void WithDrawal(float amt)
+    {
+        // code to withdraw amount
+        if (bal >= amt)
+            bal -= amt;
+        else
+            cout << "Insufficient Balance" << endl;
+    }
+};  // <-- Don't forget the semicolon here
+
+int main()
+{
+    Bank b1; // object creation
+    b1.Deposit(5000);
+    b1.WithDrawal(2000);
+    return 0;
+}
+```
+### Syntax to Create an Object in C++
+
+```cpp
+ClassName objectName;
+```
+- Ex : Bank myAcc;
+- The size of an object is equal to the sum of the sizes of all its data members, except when there is padding or alignment added by the compiler for memory efficiency.
+
+
+ 
 
 
 
