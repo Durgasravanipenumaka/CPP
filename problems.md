@@ -49,7 +49,7 @@ int main(){
                 cout<<b<<" is greater than "<<a<<endl;
 }
 ```
-## Swapping od two numbers
+## Swapping of two numbers
 ```cpp
 #include<iostream>
 using namespace std;
@@ -133,5 +133,59 @@ int main(){
                 cout<<"Name:"<<s[i].name<<" ";
                 cout<<"Empid:"<<s[i].empid<<endl;
         }
+}
+```
+## simple program using class and object.
+```c
+#include<iostream>
+#include<string>
+using namespace std;
+class input{
+        string str="sravani";
+        public :
+             void func(){
+                     cout<<"String :"<<str<<endl;
+             }
+};
+int main(){
+        input obj1;
+        obj1.func();
+}
+```
+## simple using derived.
+```c
+#include<iostream>
+#include<string>
+using namespace std;
+class parent{
+        string str;
+        public:
+        void setname(){
+                cout<<"Enter the name:";
+                cin>>str;
+        }
+        void displayname(){
+                cout<<"Name:"<<str;
+                cout<<endl;
+        }
+};
+class child:public parent{
+        int marks;
+        public:
+        void setmarks(){
+                cout<<"Enter the marks:";
+                cin>>marks;
+        }
+        void displaymarks(){
+                cout<<"Marks:"<<marks;
+                cout<<endl;
+        }
+};
+int main(){
+        child obj2;
+        obj2.setname();
+        obj2.displayname();
+        obj2.setmarks();
+        obj2.displaymarks();
 }
 ```
