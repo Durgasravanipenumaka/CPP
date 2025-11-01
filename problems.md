@@ -189,3 +189,71 @@ int main(){
         obj2.displaymarks();
 }
 ```
+
+## Write a program to create a class Student with a constructor that prints "Object
+```cpp
+#include<iostream>
+using namespace std;
+class student{
+        public :
+                student(){
+                        cout<<"Object created"<<endl;
+                }
+};
+int main(){
+        student obj;
+}
+```
+
+## Create a class Car with a constructor that initializes company name, model number and then print them using a function.
+```cpp
+#include<iostream>
+using namespace std;
+class car{
+        string name;
+        int modelnum;
+        public :
+           car(string str,int num){
+                   name=str;
+                   modelnum=num;
+           }
+           void display(){
+                   cout<<"Name : "<<name<<endl;
+                   cout<<"Model Number : "<<modelnum<<endl;
+           }
+
+};
+int main(){
+        car obj("Tata",2023);
+        obj.display();
+}
+```
+
+## Create a class Box with a default constructor that initializes:length = 10,width = 5,height = 2 ,then calculate and print the volume using a member function.
+```cpp
+#include<iostream>
+using namespace std;
+class box{
+        int length;
+        int width;
+        int height;
+        int vol;
+        public:
+            box(){
+                    length=10;
+                    width=5;
+                    height=2;
+            }
+            void volume(){
+                    vol=length*width*height;
+            }
+            void display(){
+                    cout<<"Volume : "<<vol<<endl;
+            }
+};
+int main(){
+        box obj;
+        obj.volume();
+        obj.display();
+}
+```
