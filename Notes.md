@@ -621,6 +621,203 @@ int main() {
 }
 ```
 
+## Copy :
+C++ needs to copy data members of obj1 into obj2.
+This happens using a copy constructor by default.
+```cpp
+ClassA obj1;
+ClassA obj2 = obj1;  // Copy operation
+```
+- How does the copying behave with pointers or dynamically allocated memory?
+1.Shallow copy
+2.Deep copy
+
+### Shallow copy :
+Shallow copy means:
+Copy the address of dynamically allocated memory — NOT the actual data.
+So two objects share the same memory location.
+```cpp
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    int *ptr;
+
+    Demo(int x) {
+        ptr = new int(x); // dynamic memory
+    }
+};
+
+int main() {
+    Demo obj1(10);
+    Demo obj2 = obj1; // shallow copy
+
+    cout << *obj1.ptr << endl; // 10
+    cout << *obj2.ptr << endl; // 10
+
+    *obj2.ptr = 20; // modify
+
+    cout << *obj1.ptr << endl; // 20 !!
+    cout << *obj2.ptr << endl; // 20
+}
+```
+In shallow copy they copy member to member or field to field instead of copying the data pointed by members or field.
+In shallow copy both destination and source objects refer to same dynamically allocated block, so if one object is modifing it reflects on another object.
+
+- Disadvantages :
+Since both objects share the same pointer: Changing one affects the other.
+Also, when objects destruct: It will try to delete the same memory twice → crash (double free).
+
+### Deep copy :
+Deep copy means:
+Allocate new memory and copy the content, not the address.
+Each object gets its own copy of the data.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    int *ptr;
+
+    Demo(int x) {
+        ptr = new int(x);
+    }
+
+    // Deep Copy Constructor
+    Demo(const Demo &obj) {
+        ptr = new int(*obj.ptr); // allocate new memory & copy value
+    }
+};
+
+int main() {
+    Demo obj1(10);
+    Demo obj2 = obj1; // deep copy
+
+    *obj2.ptr = 20;
+
+    cout << *obj1.ptr << endl; // 10
+    cout << *obj2.ptr << endl; // 20
+}
+```
+- In Deep copy we copy the data pointed by members instead of addresses so that every object will have its individual copy
+
+- Shallow copy is fine if you do not use dynamic memory (pointers).
+- Deep copy is required when:
+    You use new
+    You have dynamically allocated arrays
+    You store resources
+
+## Destructor :
+Destructor is automatically invoked to destroy the resources allocated by an object.
+Destructor is invoked when n objects is about to destroy.
+Destructor name is same as class prefix with tilt opeartor.
+Ex : if class name is complex :
+~complex(){
+}
+
+## Friend function :
+friend function is a nonmember of the class,but got the permissions to access private and protectd members of the clss like members of the class.
+
+we have 3 types
+  - 1.normal functions as a friend
+  - 2.member function as a friend
+  - 3.Entire class as a friend of another
+
+- How to make functions as a friend to class?
+Declare function declarations with friend keyword inside the class.
+The friend keyword is written inside class, but the function definition is written outside.
+
+- 1.Normal (global) function as a Friend :
+A simple standalone function becomes friend.
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+private:
+    int x;
+public:
+    A() { x = 10; }
+
+    friend void display(A obj); // friend declaration
+};
+
+void display(A obj) {
+    cout << "Value of x = " << obj.x; // private access allowed
+}
+
+int main() {
+    A obj;
+    display(obj);
+}
+```
+display() can access x even though it's private.
+
+- 2.Member function of one class as a Friend of another class :
+Suppose Class B has a function show(), and Class A wants to allow it access.
+```cpp
+class A {
+private:
+    int x;
+public:
+    A() { x = 50; }
+
+    friend void B::show(A obj);  // member of B is a friend
+};
+
+class B {
+public:
+    void show(A obj) {
+        cout << obj.x;
+    }
+};
+```
+Only show() can access private members of A
+Other functions of B cannot access A’s private data.
+
+- 3.Friend Class :
+We can make entire class B the friend of A.
+```cpp
+class A {
+private:
+    int x;
+public:
+    A() { x = 100; }
+
+    friend class B;   // whole class B becomes friend
+};
+
+class B {
+public:
+    void display(A obj) {
+        cout << obj.x; // private access allowed
+    }
+
+    void print(A obj) {
+        cout << obj.x * 2; // also allowed
+    }
+};
+```
+Now all member functions of B can access A’s private data.
+
+| Type                   | Access Scope                |
+| ---------------------- | --------------------------- |
+| Normal friend function | Only that one function      |
+| Member function friend | Only that member function   |
+| Friend class           | ALL functions of that class |
+
+
+
+
+
+
+
+
+
+
  
 
 
