@@ -257,3 +257,27 @@ int main(){
         obj.display();
 }
 ```
+
+## Create a class Employee with a parameterized constructor to initialize:id, salary,then create a display() function to print both values.
+```cpp
+#include<iostream>
+using namespace std;
+class employee{
+        int id;
+        float salary;
+        public:
+           employee(int idno,float str){
+                   id=idno;
+                   salary=str;
+           }
+           void display(){
+                   cout<<"Id = "<<id<<endl;
+                   cout<<"Salary = "<<salary<<endl;
+           }
+
+};
+int main(){
+        employee obj(01,88000.08);
+        obj.display();
+}
+```
