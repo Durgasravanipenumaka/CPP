@@ -810,6 +810,19 @@ Now all member functions of B can access A’s private data.
 | Friend class           | ALL functions of that class |
 
 
+## Operator Overloading  :
+Operator Overloading is a feature in C++ that allows you to redefine the behavior of an operator (like +, -, ==, etc.) when it is used with user-defined data types (classes/objects).
+
+- Syntax :
+```c
+return_type operator<symbol>(argument_list)
+{
+    // your definition
+}
+```
+
+
+
 
 
 
