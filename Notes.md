@@ -820,6 +820,56 @@ return_type operator<symbol>(argument_list)
     // your definition
 }
 ```
+- Operators That Cannot Be Overloaded
+
+  ❌ You cannot overload:
+
+      :: (scope resolution)
+
+      . (member access)
+
+      .* (pointer-to-member)
+
+      sizeof
+
+      typeid
+
+      ?: (ternary operator)
+
+- Example :
+```c
+#include<iostream>
+using namespace std;
+
+class Complex {
+    int real, imag;
+public:
+    Complex(int r=0, int i=0) {
+        real = r;
+        imag = i;
+    }
+
+    // Overload + operator
+    Complex operator+(Complex obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+
+    void display() {
+        cout << real << " + " << imag << "i" << endl;
+    }
+};
+
+int main() {
+    Complex c1(2, 3), c2(4, 5);
+    Complex c3 = c1 + c2;  // Calls operator+()
+    c3.display();
+    return 0;
+}
+```
+
 
 
 
