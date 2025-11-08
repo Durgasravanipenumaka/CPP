@@ -629,11 +629,11 @@ ClassA obj1;
 ClassA obj2 = obj1;  // Copy operation
 ```
 - How does the copying behave with pointers or dynamically allocated memory?
+
 1.Shallow copy
 2.Deep copy
 
 ### Shallow copy :
-Shallow copy means:
 Copy the address of dynamically allocated memory — NOT the actual data.
 So two objects share the same memory location.
 ```cpp
@@ -719,7 +719,7 @@ Ex : if class name is complex :
 }
 
 ## Friend function :
-friend function is a nonmember of the class,but got the permissions to access private and protectd members of the clss like members of the class.
+Friend function is a nonmember of the class,but got the permissions to access private and protected members of the class like members of the class.
 
 we have 3 types
   - 1.normal functions as a friend
@@ -869,6 +869,8 @@ int main() {
     return 0;
 }
 ```
+
+
 
 
 
