@@ -813,6 +813,17 @@ Now all member functions of B can access A’s private data.
 ## Operator Overloading  :
 Operator Overloading is a feature in C++ that allows you to redefine the behavior of an operator (like +, -, ==, etc.) when it is used with user-defined data types (classes/objects).
 
+Operator overloading is used to enhance or improvise the
+functionality of the existing operators , so that they can be
+applied on user defined datatypes without changing their
+functionality , priority and associativity of operators.
+
+It is a type of polymorphism in which an operator is overloaded
+to give user defined meaning to it. Overloaded operator is used
+to perform operation on user-defined data type. For example '+'
+operator can be overloaded to perform addition on various data
+types, like for Integer, String(concatenation) etc. 
+
 - Syntax :
 ```c
 return_type operator<symbol>(argument_list)
@@ -869,6 +880,27 @@ int main() {
     return 0;
 }
 ```
+- Operator Overloading can be done in two ways :
+  1.using memeber function
+  2.using friend function
+
+Operator overloading function can be a member function if the Left operand is an Object of that class, but if the Left operand is different, then Operator overloading function must be a friend
+function.
+
+member function operator overloading
+
+For opeartor overloading atleast one operand should be an object.
+
+To overload opearators using member functions left operand should always be the same class object, because compiler always makes the left operand as calling object.
+
+While opeartor is overloaded its the responsibility of the developer to makesure that functionality,priority and associavity is not changed.
+
+Compiler suplies a hidden pointer called "this" in every member function of a class except in static member function,
+
+"this" pointer holds the address of the calling object.
+
+"this" pointer is used to access the address or calling object itself.
+
 
 
 
