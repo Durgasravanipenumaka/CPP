@@ -861,7 +861,7 @@ public:
     }
 
     // Overload + operator
-    Complex operator+(Complex obj) {
+    Complex operator+(Complex obj) { // c1.operator+c2 ->it internally calls like this
         Complex temp;
         temp.real = real + obj.real;
         temp.imag = imag + obj.imag;
@@ -920,9 +920,28 @@ int main(){
 
 "this" pointer is used to access the address or calling object itself.
 
+Assignment opeartor overloaded function is supplied by the compiler, programmer does not supply.
 
+When you create a class in C++, you do NOT need to write your own assignment operator (=) because the compiler automatically creates one for you.
+```c
+complex operator=(const complex &obj);
+```
+The compiler still provides a default assignment operator for your class.
 
+Because in almost every program, you want to copy objects like:
+```c
+Complex c1, c2;
+c1 = c2;   // assignment
+```
+If the data members of the class are dynamically allocated then its the responsibility of the programmer to supply the assignment operator overloaded function with deep copy.
 
+operators that cannot be overloaded by only friend functions
+ 1.=
+ 2.[]
+ 3.()
+ 4.->
+
+ 
 
 
 
