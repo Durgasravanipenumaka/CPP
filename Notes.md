@@ -899,7 +899,28 @@ Compiler suplies a hidden pointer called "this" in every member function of a cl
 
 "this" pointer holds the address of the calling object.
 
+```c
+#include<iostream>
+using namespace std;
+class complex{
+        int real;
+        int img;
+        public:
+                void input(){
+                        cin>>real;//cin>>this->real
+                        cin>>img;//cin>>this->img
+                        cout<<"Complex number : " << real << "+" << img << "j" << endl;
+                }
+};
+int main(){
+        complex e1;
+        e1.input();
+}
+```
+
 "this" pointer is used to access the address or calling object itself.
+
+
 
 
 
