@@ -942,7 +942,19 @@ operators that cannot be overloaded by only friend functions
  4.->
 
 
-## 
+## Static Data Members :
+- A static member is shared by all objects of the class.
+- All ststic data is initialized to zero when the first object is created, if no other initialization is present.
+- We can't put it in the class definition but it can be initialized outside the class using the scope resolution operator :: to identify which class it belongs to.
+- When we declare a member of a class as static it means no matter how many objects of the class are created, there is only one copy of the static member.
+
+
+
+## Static Member Function :
+- By declaring a member functions as static, you make it independent of any particular object of the class. A static member function can be called even if no object of the class exist and the static function are accessed using only the class name and the scope resolution operator(::).
+- A static member function can only access static data member, other static member functions and other functions from outside the clss.
+- Static member functions have a class scope and they do not have access to this pointer of the class.
+- You could use a static member function to determine whether some objects of the class have been created or not.
  
 
 
