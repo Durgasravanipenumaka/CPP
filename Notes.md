@@ -45,8 +45,8 @@
 
 ## Datatypes :
 - datatypes are two types :
-- 1.Primary datatype
-- 2.Secondary datatype
+  1.Primary datatype
+  2.Secondary datatype
    - Derived datatype
    - User defined datatype
 
@@ -61,7 +61,7 @@
 | string                |                       |                             |
 
 
-- unicode table -> unisersal code table, which contains the symbols of all the languages which are world wisely certified.
+- unicode table -> universal code table, which contains the symbols of all the languages which are world wisely certified.
 
 #### wchart_t : 
 - wide character is used to represent is used to represent symbols of unicode.
@@ -948,13 +948,63 @@ operators that cannot be overloaded by only friend functions
 - We can't put it in the class definition but it can be initialized outside the class using the scope resolution operator :: to identify which class it belongs to.
 - When we declare a member of a class as static it means no matter how many objects of the class are created, there is only one copy of the static member.
 
+```cpp
+#include<iostream>
+using namespace std;
+
+class Demo{
+        private :
+                int n;
+                static int s;
+        public :
+                void zero(){
+                        n=0;
+                }
+                void inc(){
+                        n++;
+                        s++;
+                        cout<<"Value of static variable is :"<<s<<endl;
+                        cout<<"Value of non-static variable is :"<<n<<endl;
+                }
+};
+int Demo::s=0;
+int main(){
+        Demo obj1,obj2;
+        obj1.zero();
+        obj1.inc();
+        obj2.zero();
+        obj2.inc();
+}
+```
 
 
 ## Static Member Function :
 - By declaring a member functions as static, you make it independent of any particular object of the class. A static member function can be called even if no object of the class exist and the static function are accessed using only the class name and the scope resolution operator(::).
-- A static member function can only access static data member, other static member functions and other functions from outside the clss.
+- A static member functions can only access the static member of that class.
 - Static member functions have a class scope and they do not have access to this pointer of the class.
 - You could use a static member function to determine whether some objects of the class have been created or not.
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Demo {
+        private :
+                static int s;
+        public :
+                static void inc(){
+                        s++;
+                        cout<<"S value : "<<s<<endl;
+                }
+};
+
+int Demo::s=100;
+int main(){
+        Demo::inc();
+        Demo::inc();
+}
+```
+
  
 
 
