@@ -1005,6 +1005,44 @@ int main(){
 }
 ```
 
+
+## Constant members of a class :
+### Constant data members :
+- Constant data member is a variable inside a class that cannot be changed after initialization.
+- It must be initialized when the object is created.
+- value remains constant for that objet's lifetime.
+- constant data members should be initialized through constructor with a special syntax, once initialized they cannot be changeable.
+
+### syntax :
+```cpp
+class Demo {
+    const int x;   // constant data member
+public:
+    Demo(int a) : x(a) {}   // initialize using constructor
+};
+```
+### code :
+```cpp
+#include<iostream>
+using namespace std;
+
+class Demo{
+        const int x;
+        public :
+              Demo(int a) : x(a) {}
+              void show(){
+                      cout<<"x = "<<x<<endl;
+              }
+};
+
+int main(){
+        Demo d1(10);
+        Demo d2(20);
+
+        d1.show();
+        d2.show();
+}
+```
  
 
 
