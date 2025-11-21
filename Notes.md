@@ -1081,6 +1081,17 @@ int main(){
 }
 ```
 
+members functions of a class are of two types
+1.Mutator member functions
+2.Accessor member functions
+
+mutators member functions can access as well as modify the data members of a class.
+
+By default member function are mutators in nature.
+
+Accessor member functions can only access the data members , they cannot modify them
+
+Accessor member functions also known as constant member functions or read only member functions
 
 
 
