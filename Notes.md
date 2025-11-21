@@ -1043,7 +1043,44 @@ int main(){
         d2.show();
 }
 ```
- 
+
+ ## Constant member function :
+ - A Constant member function is a function that cannot modigy any data member of the class.
+ - Guarantees read-only access to object data.
+ - Declared using const keyword after function definition.
+
+## syntax :
+```cpp
+class Demo {
+public:
+    void display() const;  // constant function
+};
+```
+
+### code:
+```cpp
+#include<iostream>
+using namespace std;
+
+class Demo {
+        int a;
+        public :
+            Demo(int x) : a(x) {}
+
+            void show() const{
+                   // a=100;   error
+                    cout<<"a = "<<a<<endl;
+            }
+};
+int main(){
+        Demo d1(10);
+        Demo d2(30);
+
+        d1.show();
+        d2.show();
+}
+```
+
 
 
 
