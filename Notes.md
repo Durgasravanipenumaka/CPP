@@ -72,7 +72,7 @@
 - ascii table is also part of unicode table.
 
 #### bool :
-- while(true)           while(1)
+- while(true)          // while(1)
 - bool flag1=true
 - bool p=false
 
