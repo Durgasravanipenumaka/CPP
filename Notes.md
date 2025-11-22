@@ -170,7 +170,7 @@ int a;
 int &r=a;     //wrong
 
 ```
-- 2.Reference must be unintialized at the time of its declaration.
+- 2.Reference must be intialized at the time of its declaration.
 ```cpp
 int a;   
 int &z;
@@ -214,7 +214,7 @@ int &z;
 
 ```
 #### call by reference :
-- In call by reference ,formal arguments are references of the actual arguments, so formal arguments doesnot consume extra memory they refer to the actual arguments memoty blocks,so,whatever we modify on formal arguments they reflect on actual arguments.
+- In call by reference ,formal arguments are references of the actual arguments, so formal arguments doesnot consume extra memory they refer to the actual arguments memoty blocks .so,whatever we modify on formal arguments they reflect on actual arguments.
 - function call,function definition are same as call by value.
 ```cpp
 #include<iostream>
@@ -298,6 +298,7 @@ int main(){
 In function declaration.
 ## What should be default values ?
 Any thing or any value based on our requirement.
+
 ex:
 ```cpp
 #include<iostream>
@@ -326,14 +327,15 @@ int add(int ,int =0,int =0);
 - Whybecause mapping of actual arguments to formal arguments are done from left to right.
 
 ## Function Overloading :
-- Function overloading is a compile time polymorphism which is used to give same name to more than one function with different signatures.
+ Function overloading is a compile time polymorphism which is used to give same name to more than one function with different signatures.
+
 ## What is function signature ?
 - function signature is formed by
     1.Function name
     2.Type of input arguments
     3.order of input arguments
     4.No of input arguments
-  - In function overloading to have different signature  either type of arguments,order of arguments or no of arguments should be different.
+- In function overloading to have different signature  either type of arguments,order of arguments or no of arguments should be different.
 - Here we have same name but type of arguments are different :
 ```cpp
 int add(int a,int b){
@@ -404,8 +406,8 @@ float add(int a,float b){
 - protected members are accessible only by the members and child of the class or structure.
 - public members are accessible by members and non members.
 - By default members of the structure are public in nature ,so we go with class datatype.
-
 - In C++ encapsulation is implemented using structures and classes.
+
 ### What is encapsulation?
 - Binding of data and its related functionalites into a single entity is called Encapsulation.
 
@@ -728,6 +730,7 @@ we have 3 types
 
 - How to make functions as a friend to class?
 Declare function declarations with friend keyword inside the class.
+
 The friend keyword is written inside class, but the function definition is written outside.
 
 - 1.Normal (global) function as a Friend :
@@ -813,16 +816,9 @@ Now all member functions of B can access A’s private data.
 ## Operator Overloading  :
 Operator Overloading is a feature in C++ that allows you to redefine the behavior of an operator (like +, -, ==, etc.) when it is used with user-defined data types (classes/objects).
 
-Operator overloading is used to enhance or improvise the
-functionality of the existing operators , so that they can be
-applied on user defined datatypes without changing their
-functionality , priority and associativity of operators.
+Operator overloading is used to enhance or improvise the functionality of the existing operators , so that they can be applied on user defined datatypes without changing their functionality, priority and associativity of operators.
 
-It is a type of polymorphism in which an operator is overloaded
-to give user defined meaning to it. Overloaded operator is used
-to perform operation on user-defined data type. For example '+'
-operator can be overloaded to perform addition on various data
-types, like for Integer, String(concatenation) etc. 
+It is a type of polymorphism in which an operator is overloaded to give user defined meaning to it. Overloaded operator is used to perform operation on user-defined data type. For example '+' operator can be overloaded to perform addition on various data types, like for Integer, String(concatenation) etc. 
 
 - Syntax :
 ```c
@@ -884,10 +880,9 @@ int main() {
   1.using memeber function
   2.using friend function
 
-Operator overloading function can be a member function if the Left operand is an Object of that class, but if the Left operand is different, then Operator overloading function must be a friend
-function.
+Operator overloading function can be a member function if the Left operand is an Object of that class, but if the Left operand is different, then Operator overloading function must be a friend function.
 
-member function operator overloading
+- member function operator overloading
 
 For opeartor overloading atleast one operand should be an object.
 
@@ -944,7 +939,7 @@ operators that cannot be overloaded by only friend functions
 
 ## Static Data Members :
 - A static member is shared by all objects of the class.
-- All ststic data is initialized to zero when the first object is created, if no other initialization is present.
+- All static data is initialized to zero when the first object is created, if no other initialization is present.
 - We can't put it in the class definition but it can be initialized outside the class using the scope resolution operator :: to identify which class it belongs to.
 - When we declare a member of a class as static it means no matter how many objects of the class are created, there is only one copy of the static member.
 
@@ -1045,7 +1040,7 @@ int main(){
 ```
 
  ## Constant member function :
- - A Constant member function is a function that cannot modigy any data member of the class.
+ - A Constant member function is a function that cannot modify any data member of the class.
  - Guarantees read-only access to object data.
  - Declared using const keyword after function definition.
 
@@ -1092,6 +1087,122 @@ By default member function are mutators in nature.
 Accessor member functions can only access the data members , they cannot modify them
 
 Accessor member functions also known as constant member functions or read only member functions
+
+Values of the data members of the constant object cannot be changable.
+
+Constant objects can only invoke constant member functions.
+
+Mutable storage class is applicable only to the data member of the class.Mutable means can be changable.
+
+If a data member declared as mutable , its value can be changable inside the constant member function and as well as for constantobjects.
+
+
+## Inheritance :
+Inheritance allows one class to reuse attributes and methods from another class. It helps you write cleaner, more efficient code by avoiding duplication.
+
+we group the "inheritance concept" into two categories :
+
+- derived class(child) - the class that inherits from another class
+- base class(parent) - the class being inherited from
+
+To inherit from a class, use the : symbol.
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class vehicle{
+        protected :
+                string name = "car";
+                string company = "ford";
+        public :
+              void display(){
+                      cout<<"tu tu tu"<<endl;
+              }
+};
+
+class car: public vehicle {
+        public:
+                string model = "Mustang";
+
+                void showdetails(){
+                        cout<<name<<" "<<company<<" "<<model<<endl;
+                }
+};
+
+int main(){
+        car obj;
+        obj.display();
+        obj.showdetails();
+}
+```
+
+## multilevel inheritance :
+A class can also be derived from one class, which is already derived from another class.
+
+In the following example, Mygrandchild is derived from class Mychild (which is derived from Myclass)
+
+```cpp
+#include <iostream>
+using namespace std;
+
+// Parent class
+class MyClass {
+  public: 
+    void myFunction() {
+      cout << "Some content in parent class." ;
+    }
+};
+
+// Child class
+class MyChild: public MyClass {
+};
+
+// Grandchild class 
+class MyGrandChild: public MyChild {
+};
+
+int main() {
+  MyGrandChild myObj;
+  myObj.myFunction();
+  return 0;
+}
+```
+
+## Multiple Inheritance :
+A class can also be derived from more than one base class,using a comma-seperated list.
+
+```cpp
+// Base class
+class MyClass {
+  public:
+    void myFunction() {
+      cout << "Some content in parent class." ;
+    }
+};
+
+// Another base class
+class MyOtherClass {
+  public:
+    void myOtherFunction() {
+      cout << "Some content in another class." ;
+    }
+};
+
+// Derived class
+class MyChildClass: public MyClass, public MyOtherClass {
+};
+
+int main() {
+  MyChildClass myObj;
+  myObj.myFunction();
+  myObj.myOtherFunction();
+  return 0;
+}
+```
+
+
+
 
 
 
