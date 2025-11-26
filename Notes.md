@@ -1201,7 +1201,132 @@ int main() {
 }
 ```
 
+## Polymorphism :
+Polymorphism means having multiple forms of one thing. In inheritance, polymorphism is done, by function overriding, when both parent and child class have member function with same name , declaration but different definition.
 
+## Function Overriding :
+Function overriding is the mechanism using which a function defined in the base class is once again defined in the derived class. In this case, we say the function is overridden in the derived class.
+
+### Requirements for Overriding a Function
+- Inheritance should be there. Function overriding cannot be done within a class. For this we require a derived class and a base class.
+- Function that is redefined must have exactly the same declaration in
+both base and derived class, that means same name, same return
+type and same type of input arguments .
+
+## Compile time polymorphism :
+If function symbols are resolved at compile time, it is called compile time polymorphism.
+
+Compile time polymorphism is also called as early binding or static binding or compile time binding.
+
+Ex : - function overloading
+     - operator overloading
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void add(int a, int b) {
+    cout << a + b;
+}
+
+void add(double a, double b) {
+    cout << a + b;
+}
+
+int main() {
+    add(5, 3);        // calls int version
+    add(2.5, 3.7);    // calls double version
+}
+```
+
+## Run time polymorphism :
+If function symbols are resolved at runtime, it is called run time polymorphism.
+
+Run time polymorphism is also called as dynamic binding or run time binding or late binding.
+
+ex : function overriding
+
+To implement the run time polymorphism we need hierarchical inheritance 
+
+parent pointer
+
+## vitual functions
+A virtual function is a member function in the base class that can be overridden in derived classes.
+
+Virtual functions are a key part of polymorphism in C++. They let different objects respond differently to the same function call.
+
+### Why Use Virtual Functions?
+Without virtual, C++ decides which function to call based on the pointer type, not the actual object type.
+
+Without virtual: the base function runs, even if the object is from a child class.
+
+```cpp
+class Animal {
+  public:
+    void sound() {
+      cout << "Animal sound\n";
+    }
+};
+
+class Dog : public Animal {
+  public:
+    void sound() {
+      cout << "Dog barks\n";
+    }
+};
+
+int main() {
+  Animal* a;  // Declare a pointer to the base class (Animal)
+  Dog d;  // Create an object of the derived class (Dog)
+  a = &d;  // Point the base class pointer to the Dog object
+  a->sound(); // Call the sound() function using the pointer. Since sound() is not virtual, this calls Animal's version
+  return 0;
+}
+```
+Even though a points to a Dog, it still calls Animal::sound() because the function is not virtual.
+
+With virtual, it checks the actual object the pointer is pointing to.
+
+With virtual: the child's version runs, like you expect.
+
+```cpp
+class Animal {
+  public:
+    virtual void sound() {
+      cout << "Animal sound\n";
+    }
+};
+
+class Dog : public Animal {
+  public:
+    void sound() override {
+      cout << "Dog barks\n";
+    }
+};
+
+int main() {
+  Animal* a;
+  Dog d;
+  a = &d;
+  a->sound(); // Outputs: Dog barks
+  return 0;
+}
+```
+Now it works! Because sound() is virtual, the call uses the actual object's function and not just the pointer type
+
+- Use virtual only in the base class
+- Use override (optional, but recommended) in the derived class for clarity
+
+
+pure virtual funciton is a member function of a parent class whose definition is assigned with zero and this function must be redefined by the child class.  
+
+Syntax of pure virtual function : virtual void foo()=0;
+
+If a class contains atleast one pure virtual function class becomes abstract class.
+
+For an abstract class we cannot create objects, but we can create pointers and references to it.
+
+Note : If child class is not redefining the pure virtual functions then child class also becomes abstract class.
 
 
 
