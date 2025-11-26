@@ -1318,17 +1318,31 @@ Now it works! Because sound() is virtual, the call uses the actual object's func
 - Use override (optional, but recommended) in the derived class for clarity
 
 
-pure virtual funciton is a member function of a parent class whose definition is assigned with zero and this function must be redefined by the child class.  
 
-Syntax of pure virtual function : virtual void foo()=0;
 
-If a class contains atleast one pure virtual function class becomes abstract class.
+Pure virtual functions is a member function of a parent class whose definition is assigned with zero.
+
+- Syntax : virtual returntype datatype funname()=0;
+
+Eg : virtual void foo()=0;
 
 For an abstract class we cannot create objects, but we can create pointers and references to it.
 
 Note : If child class is not redefining the pure virtual functions then child class also becomes abstract class.
 
+When a class contains virtual functions, compiler creates a virtual table.
 
+### What is virtual table?
+A virtual table is a static array of function pointers, which stores virtual functions address.
+
+To create the connectivity between the class and virtual table compiler adds a hidden pointer called virtual pointer or vptr as a data member to the class.
+
+Virtual table cannot be inherited.
+
+vptr will be inherited to child class.
+
+### Is virtual functions are faster or normal functions?
+Normal functions are faster.
 
 
 
