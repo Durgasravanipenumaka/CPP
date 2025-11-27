@@ -1345,6 +1345,32 @@ vptr will be inherited to child class.
 Normal functions are faster.
 
 
+## Template :
+Templates are powerful features of C++ which allows you to write generic programs .In simple terms, you can create a single function or a class to work with different data types using templates.
+
+Templates are often used in larger codebase for the purpose of code reusability and flexibility of the programs.
+
+The concept of templates can be used in two different ways:
+
+ 1.Function Templates
+
+ 2.Class Templates 
+
+Templates are used to implement the generic programming in c++.
+
+
+
+syntax to create generic functions
+
+```cpp
+template <typename T>
+return_type function_name(T parameter) {
+  // code
+}
+```
+
+Templates let you write a function or class that works with different data types
+
 
 
 
