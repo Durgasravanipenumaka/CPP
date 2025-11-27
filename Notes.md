@@ -1350,6 +1350,8 @@ Templates are powerful features of C++ which allows you to write generic program
 
 Templates are often used in larger codebase for the purpose of code reusability and flexibility of the programs.
 
+Templates let you write a function or class that works with different data types.
+
 The concept of templates can be used in two different ways:
 
  1.Function Templates
@@ -1357,8 +1359,6 @@ The concept of templates can be used in two different ways:
  2.Class Templates 
 
 Templates are used to implement the generic programming in c++.
-
-
 
 syntax to create generic functions
 
@@ -1369,7 +1369,48 @@ return_type function_name(T parameter) {
 }
 ```
 
-Templates let you write a function or class that works with different data types
+Example for function templates :
+
+```cpp
+#include<iostream>
+using namespace std;
+template <typename T>
+T add(T a , T b){
+        T c;
+        c=a+b;
+        return c;
+}
+int main(){
+        cout<<add<int>(10,20)<<endl;
+        cout<<add<float>(10.2,11.7)<<endl;
+}
+```
+
+Example for function templates :
+
+```cpp
+#include<iostream>
+using namespace std;
+template <class T>
+class box{
+        T value;
+        public:
+        box(T v){
+                value=v;
+        }
+        T getvalue(){
+                return value;
+        }
+};
+
+int main(){
+        box<int>b1(10);
+        box<string>b2("Hello");
+
+        cout<<b1.getvalue()<<endl;
+        cout<<b2.getvalue()<<endl;
+}
+```
 
 
 
