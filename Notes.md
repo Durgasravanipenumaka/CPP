@@ -1414,7 +1414,137 @@ int main(){
 ```
 
 ## Structures :
-It is a userdefined datatype 
+It is a userdefined datatype that is used to combine data of different types.It is similar to an array but unlike an array, which stores elements of the same type, a structure can store elements of different data types. C++ structures can also have member functions to manipulate its data.
+
+- create structure
+A structure has to be defined before being usable in the program. It is defined using struct keyword.
+```cpp
+struct structure_name{
+    type1 member1;
+    type2 member2;
+    .
+    .
+    typeN memberN;
+};
+```
+This definition does not allocate any memory to the structure. We have to create structure variables separately to use it.
+```cpp
+structure_name var_name;
+```
+We can also assign some values to the members:
+```cpp
+struct structure_name = {val1, val2, ..., valN};
+```
+example :
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+struct student {
+        int id;
+        char name[100];
+        float marks;
+};
+int main(){
+        struct student s={01,"sravani",92.05};
+
+        cout<<s.id<<endl;
+        cout<<s.name<<endl;
+        cout<<s.marks<<endl;
+
+}
+```
+
+## Union :
+In C++, union is a user-defined datatype in which we can define members of different types of data types just like structures but unlike a structure, where each member has its own memory, a union member shares the same memory location.
+
+- create union
+```cpp
+union union_name{
+    type1 member1;
+    type2 member2;
+    .
+    .
+    typeN memberN;
+};
+```
+Then we can create union variables:
+```cpp
+union_name var_name;
+```
+Only one member of a union stores memory at one time.
+```cpp
+var_name.member1 = val
+```
+Example :
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+union student {
+        int id;
+        char name[10];
+        float marks;
+};
+int main(){
+        union student s;
+
+        s.id=1;
+        cout<<s.id<<endl;
+
+        strcpy(s.name,"sravani");
+        cout<<s.name<<endl;
+
+        s.marks=93.07;
+        cout<<s.marks<<endl;
+}
+```
+
+## Enumeration
+In C++, enumeration (enum) is a user-defined type that consists of a set of named integral constants. Enumerations help make the code more readable and easier to maintain by assigning meaningful names to constants.
+
+- create Enums :
+Just like all other user defined data types, enums also needs to be defined before we can use it.
+```cpp
+enum enum_name {
+    value1, value2, value3…..valueN
+};
+```
+Once defined, it can be used in the C++ program.
+```cpp
+enum_name var_name = value
+```
+Example :
+```cpp
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+        enum student {
+                male,female
+        };
+
+        student s = male;
+
+        switch(s){
+                case male :
+                        cout<<"Who is he?"<<endl;
+                        break;
+
+                case female :
+                        cout<<"Who is she?"<<endl;
+                        break;
+
+                default :
+                        cout<<"Who is they"<<endl;
+        }
+}
+```
+
+
+
+
+
+
+
+
 
 
 
