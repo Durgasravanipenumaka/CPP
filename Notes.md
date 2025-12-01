@@ -633,6 +633,7 @@ ClassA obj2 = obj1;  // Copy operation
 - How does the copying behave with pointers or dynamically allocated memory?
 
 1.Shallow copy
+
 2.Deep copy
 
 ### Shallow copy :
@@ -1412,7 +1413,8 @@ int main(){
 }
 ```
 
-
+## Structures :
+It is a userdefined datatype 
 
 
 
