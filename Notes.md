@@ -1538,12 +1538,57 @@ int main(){
 }
 ```
 
+## C++ Standard Template Library (STL):
+In C++, the Standard Template Library (STL) provides a set of programming tools to implement algorithms and data structures like vectors, lists, queues, etc.
 
+STL implements these data structures and algorithms using general-purpose classes and functions that have been tested rigorously.
 
+C++ STL has 3 major components:
+- Container
+- Iterator
+- Algorithms
 
+### Containers :
+STL containers store data and organize them in a specific manner as required.
 
+For example, vectors store data of the same type in a sequential order. Whereas, maps store data in key-value pairs.
 
+We can classify STL containers into 3 types:
 
+1. Sequence Container    
+    - vector
+    - Dequeue
+    - List
+2. Associative container
+    - Sets
+    - Multisets
+    - Maps
+    - Multimaps
+3. Container adaptor / Derived container
+    - stack
+    - queue
+  
+- Sequence containers: These are used to implement sequential data structures like a linked list, array, etc.
+- Associative containers: These are those containers in which each element has a value that is related to a key. They are used to implement sorted data structures, for example, set, multiset, map, etc.
+- Containers adapters: Container adapters can be defined as an interface used to provide
+functionality to the pre-existing containers.
+
+### Iterators :
+Iterators are used to access data in the containers, and it helps in traversing through elements of containers using its functions. They can be incremented and decremented as per choice and help in the manipulation of data in the container.
+
+Iterator functions are:
+- begin(): This function points the iterator to the first element of the container.
+- end(): This function points the iterator to the last element of the container.
+
+### Algorithms :
+In STL, different types of algorithms can be implemented with the help of iterators. Algorithms can be defined as functions applied to the containers and provide operation for the content of the container. for example : sort(), swap(), min(), max() etc.
+
+Types of algorithms:
+  - Modifying algorithms
+  - Non-modifying algorithms
+  - sorting algorithms
+  - searching algorithms
+  - Numeric algorithms
 
 
 
