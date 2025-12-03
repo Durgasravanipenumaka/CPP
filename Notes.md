@@ -47,7 +47,9 @@
 - datatypes are two types :
 
   1.Primary datatype
+  
   2.Secondary datatype
+  
        - Derived datatype
        - User defined datatype
 
