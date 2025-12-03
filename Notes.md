@@ -1573,8 +1573,7 @@ We can classify STL containers into 3 types:
   
 - Sequence containers: These are used to implement sequential data structures like a linked list, array, etc.
 - Associative containers: These are those containers in which each element has a value that is related to a key. They are used to implement sorted data structures, for example, set, multiset, map, etc.
-- Containers adapters: Container adapters can be defined as an interface used to provide
-functionality to the pre-existing containers.
+- Containers adapters: Container adapters can be defined as an interface used to provide functionality to the pre-existing containers.
 
 ### Iterators :
 Iterators are used to access data in the containers, and it helps in traversing through elements of containers using its functions. They can be incremented and decremented as per choice and help in the manipulation of data in the container.
