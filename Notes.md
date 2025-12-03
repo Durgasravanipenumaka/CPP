@@ -45,10 +45,11 @@
 
 ## Datatypes :
 - datatypes are two types :
+
   1.Primary datatype
   2.Secondary datatype
-   - Derived datatype
-   - User defined datatype
+       - Derived datatype
+       - User defined datatype
 
 | **Primary Datatypes** | **Derived Datatypes** | **User-defined Datatypes** |
 |------------------------|-----------------------|-----------------------------|
