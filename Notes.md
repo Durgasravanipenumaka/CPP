@@ -1595,8 +1595,58 @@ Types of algorithms:
 
 
 
+## Encapsulation :
+Encapsulation is the process of wrapping (binding) data and functions into a single unit (class) and protecting that data from outside access.
+
+It also means data hiding using access modifiers like:
+ - private
+ - public
+ - protected
+
+- Example :
+```cpp
+class Student {
+private:
+    int marks;  // hidden
+
+public:
+    void setMarks(int m) {
+        if (m >= 0 && m <= 100)  // validation
+            marks = m;
+        else
+            marks = 0;
+    }
+
+    int getMarks() {
+        return marks;
+    }
+};
+```
+- marks is private → cannot be accessed directly.
+- setMarks() and getMarks() control how data is set and retrieved.
+- This is Encapsulation.
 
 
+## Abstraction :
+Abstraction means showing only the important details to the user and hiding all the unnecessary internal working.
+
+- Focus on what it does, not how it works.
+```cpp
+class Car {
+public:
+    void start() {
+        // user only sees this function
+        engineStart();   // hidden function
+        fuelCheck();     // hidden function
+        ignition();      // hidden function
+    }
+
+private:
+    void engineStart() {}
+    void fuelCheck() {}
+    void ignition() {}
+};
+```
 
 
 
