@@ -1648,6 +1648,82 @@ private:
 ```
 
 
+## Vector 
+ A vector is a dynamic array in c++.
+
+ It can grow and shrink in size automatically during runtime, unlike normal arrays(whose size is fixed).
+
+ To use a vector,we must include:
+ ```cpp
+#include <vector>
+```
+
+syntax:
+```cpp
+vector<datatype> vectorname;
+```
+
+Common Functions Used with Vector
+
+| Function         | Meaning                          |
+| ---------------- | -------------------------------- |
+| `push_back(x)`   | Insert element at end            |
+| `pop_back()`     | Remove last element              |
+| `size()`         | Returns number of elements       |
+| `at(i)`          | Access element at index i (safe) |
+| `operator[]`     | Access element like `v[i]`       |
+| `clear()`        | Remove all elements              |
+| `empty()`        | Check vector is empty or not     |
+| `begin(), end()` | Used in loops/iterators          |
+
+- code
+```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+
+        vector<int> v = {10,20,30};
+
+        // Adding element at last
+        v.push_back(40);
+
+        for(int i=0;i<v.size();i++){
+                cout<<v[i]<<" ";
+        }
+        cout<<endl;
+
+        // Delete last element
+        v.pop_back();
+
+        // Insert element at particular position from begin
+        v.insert(v.begin(),90);
+
+        for(int i=0;i<v.size();i++){
+                cout<<v[i]<<" ";
+        }
+        cout<<endl;
+
+        // Insert element at particular position from end
+        v.insert(v.end(),70);
+
+        for(int i=0;i<v.size();i++){
+                cout<<v[i]<<" ";
+        }
+        cout<<endl;
+
+        // print element at particular position
+        cout<<v.at(0)<<endl;
+
+
+}
+```
+
+
+
+
+
+
 
 
 
