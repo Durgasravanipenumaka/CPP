@@ -1649,12 +1649,13 @@ private:
 
 
 ## Vector 
- A vector is a dynamic array in c++.
+A vector is a dynamic array in c++.
 
- It can grow and shrink in size automatically during runtime, unlike normal arrays(whose size is fixed).
+It can grow and shrink in size automatically during runtime, unlike normal arrays(whose size is fixed).
 
- To use a vector,we must include:
- ```cpp
+To use a vector,we must include:
+
+```cpp
 #include <vector>
 ```
 
@@ -1680,6 +1681,7 @@ Common Functions Used with Vector
 ```cpp
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 int main(){
 
@@ -1715,9 +1717,29 @@ int main(){
         // print element at particular position
         cout<<v.at(0)<<endl;
 
+        v.erase(find(v.begin(),v.end(),90));
 
+        for(int i=0;i<v.size();i++){
+                cout<<v[i]<<" ";
+        }
+        cout<<endl;
 }
+
 ```
+
+
+## List :
+
+A list in c++ STL is a Doubly Linked List.
+
+It stores elements non-contiguously.
+
+Each element (node) contains:
+ - Data
+ - pointer to next node
+ - pointer to previous node
+
+Because of this structure, insertion and deletion is very fast anywhere in the list.
 
 
 
