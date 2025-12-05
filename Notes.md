@@ -213,13 +213,67 @@ int &z;
 - call by value
 - call by address(which is call by reference in c)
 - call by reference (formal arguments reference to actual arguments )
-#### call by address :
-```c
+
+### call by value :
+In call by value, a copy of the variable is passed to the function.
+
+So, changes inside function won’t affect the original value.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void changeValue(int x) {
+    x = 50;   // Changing the copied value
+    cout << "Inside function, x = " << x << endl;
+}
+
+int main() {
+    int a = 10;
+
+    cout << "Before function call, a = " << a << endl;
+
+    changeValue(a);  // Passing a by value
+
+    cout << "After function call, a = " << a << endl;
+
+    return 0;
+}
+```
+
+### call by address :
+We pass the address (pointer) of the variable to the function.
+
+So, changes inside function affect the original value.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void changeValue(int *x) {
+    *x = 50;  // Changing the original value using pointer
+    cout << "Inside function, *x = " << *x << endl;
+}
+
+int main() {
+    int a = 10;
+
+    cout << "Before function call, a = " << a << endl;
+
+    changeValue(&a);  // Passing address of 'a'
+
+    cout << "After function call, a = " << a << endl;
+
+    return 0;
+}
 
 ```
+
 #### call by reference :
-- In call by reference ,formal arguments are references of the actual arguments, so formal arguments doesnot consume extra memory they refer to the actual arguments memoty blocks .so,whatever we modify on formal arguments they reflect on actual arguments.
-- function call,function definition are same as call by value.
+In call by reference ,formal arguments are references of the actual arguments, so formal arguments doesnot consume extra memory they refer to the actual arguments memoty blocks .so,whatever we modify on formal arguments they reflect on actual arguments.
+
+Function call,function definition are same as call by value.
+
 ```cpp
 #include<iostream>
 using namespace std;
