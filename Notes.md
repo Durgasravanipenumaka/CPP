@@ -391,12 +391,18 @@ int add(int ,int =0,int =0);
 
 ## What is function signature ?
 - function signature is formed by
+  
     1.Function name
+  
     2.Type of input arguments
+  
     3.order of input arguments
+  
     4.No of input arguments
+  
 - In function overloading to have different signature  either type of arguments,order of arguments or no of arguments should be different.
 - Here we have same name but type of arguments are different :
+
 ```cpp
 int add(int a,int b){
         return a+b;
@@ -405,7 +411,9 @@ double add(double a,double b){
         return a+b;
 }
 ```
+
 - Here we have different number of arguments are different :
+
 ```cpp
 int add(int a,int b,int c){
         return a+b+c;
@@ -414,7 +422,9 @@ int add(int a,int b){
         return a+b;
 }
 ```
+
 - Here order of arguments are different :
+  
 ```cpp
 #include<iostream>
 using namespace std;
@@ -425,7 +435,9 @@ float add(float a,int b){
         return a+b;
 }
 ```
+
 - Here this example cannot be overloaded :
+  
 ```cpp
 int add(int a,float b){
         return a+b;
@@ -434,9 +446,11 @@ float add(int a,float b){
         return a+b;
 }
 ```
+
 - call by value and call by address can be overloaded.
 - call by reference and call by address can be overloaded.
 - call by reference and call by value cannot be overloaded.
+
 
 ## Storage classes :
 - In C we have 4 types of storage classes.
@@ -445,9 +459,11 @@ float add(int a,float b){
     2.register
     3.static
     4.extern
-    5.mutable -> applicable only to the data memmbers of a class.
+    5.mutable -> applicable only to the data members of a class.
+
 
 ## Structures :
+
 ### Difference Between C and C++ Structures : 
 
 | **C Structures** | **C++ Structures** |
@@ -459,9 +475,13 @@ float add(int a,float b){
 - Access specifiers decides who can access them.
 - Types of access specifiers
 - we have 3 types of access specifiers :
+  
     1.public
+  
     2.private
+  
     3.protected
+  
 - private members are accessible only by the members of the structure or class.
 - protected members are accessible only by the members and child of the class or structure.
 - public members are accessible by members and non members.
