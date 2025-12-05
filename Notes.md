@@ -155,6 +155,7 @@ for(int i=0;i<r;i++){
 ```cpp
 int num=10;
 int &ref = num;
+num=120;
 cout<<ref; -> 120
 cout<<&ref; ->Address
 char ch = 'a';
