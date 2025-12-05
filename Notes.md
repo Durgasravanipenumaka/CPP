@@ -652,9 +652,11 @@ A **constructor** is a special member function used to **initialize an object at
 
 ## 3. Copy Constructor :
 - A constructor whose input arguments or formal arguments is a reference to same class object is calles copy constructor.
-- Copy constructors are invoked when we assign an exixting object to a newly created object at the time of itys declarations.
+- Copy constructors are invoked when we assign an existing object to a newly created object at the time of its declaration.
 - Ex : complex e1
+  
        complex e2=e1; // e2.complex(e1);
+  
 ## Complete combined example (Default, Parameterized, Copy) :
 ```cpp
 #include <iostream>
@@ -705,12 +707,15 @@ int main() {
 
 ## Copy :
 C++ needs to copy data members of obj1 into obj2.
+
 This happens using a copy constructor by default.
+
 ```cpp
 ClassA obj1;
 ClassA obj2 = obj1;  // Copy operation
 ```
-- How does the copying behave with pointers or dynamically allocated memory?
+
+### How does the copying behave with pointers or dynamically allocated memory?
 
 1.Shallow copy
 
@@ -718,7 +723,9 @@ ClassA obj2 = obj1;  // Copy operation
 
 ### Shallow copy :
 Copy the address of dynamically allocated memory — NOT the actual data.
+
 So two objects share the same memory location.
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -746,15 +753,18 @@ int main() {
 }
 ```
 In shallow copy they copy member to member or field to field instead of copying the data pointed by members or field.
+
 In shallow copy both destination and source objects refer to same dynamically allocated block, so if one object is modifing it reflects on another object.
 
 - Disadvantages :
 Since both objects share the same pointer: Changing one affects the other.
+
 Also, when objects destruct: It will try to delete the same memory twice → crash (double free).
 
 ### Deep copy :
 Deep copy means:
 Allocate new memory and copy the content, not the address.
+
 Each object gets its own copy of the data.
 
 ```cpp
@@ -809,7 +819,7 @@ we have 3 types
   - 2.member function as a friend
   - 3.Entire class as a friend of another
 
-- How to make functions as a friend to class?
+### How to make functions as a friend to class?
 Declare function declarations with friend keyword inside the class.
 
 The friend keyword is written inside class, but the function definition is written outside.
@@ -841,7 +851,9 @@ int main() {
 display() can access x even though it's private.
 
 - 2.Member function of one class as a Friend of another class :
+  
 Suppose Class B has a function show(), and Class A wants to allow it access.
+
 ```cpp
 class A {
 private:
@@ -859,11 +871,14 @@ public:
     }
 };
 ```
-Only show() can access private members of A
+Only show() can access private members of A.
+
 Other functions of B cannot access A’s private data.
 
 - 3.Friend Class :
+
 We can make entire class B the friend of A.
+
 ```cpp
 class A {
 private:
@@ -971,7 +986,7 @@ To overload opearators using member functions left operand should always be the 
 
 While opeartor is overloaded its the responsibility of the developer to makesure that functionality,priority and associavity is not changed.
 
-Compiler suplies a hidden pointer called "this" in every member function of a class except in static member function,
+Compiler suplies a hidden pointer called "this" in every member function of a class except in static member function.
 
 "this" pointer holds the address of the calling object.
 
@@ -999,22 +1014,30 @@ int main(){
 Assignment opeartor overloaded function is supplied by the compiler, programmer does not supply.
 
 When you create a class in C++, you do NOT need to write your own assignment operator (=) because the compiler automatically creates one for you.
+
 ```c
 complex operator=(const complex &obj);
 ```
+
 The compiler still provides a default assignment operator for your class.
 
 Because in almost every program, you want to copy objects like:
+
 ```c
 Complex c1, c2;
 c1 = c2;   // assignment
 ```
+
 If the data members of the class are dynamically allocated then its the responsibility of the programmer to supply the assignment operator overloaded function with deep copy.
 
-operators that cannot be overloaded by only friend functions
+operators that cannot be overloaded by only friend functions.
+
  1.=
+ 
  2.[]
+ 
  3.()
+
  4.->
 
 
@@ -1178,6 +1201,39 @@ Mutable storage class is applicable only to the data member of the class.Mutable
 If a data member declared as mutable , its value can be changable inside the constant member function and as well as for constantobjects.
 
 
+## Inline Functions :
+An inline function is a function for which the compiler replaces the function call with the function code itself during compilation.
+
+So instead of jumping to a function definition, the code is directly inserted → which makes execution faster.
+
+syntax:
+```cpp
+inline void add(int a, int b) {
+    cout << a + b;
+}
+```
+- Example :
+```cpp
+#include <iostream>
+using namespace std;
+
+inline int square(int x) {
+    return x * x;
+}
+
+int main() {
+    cout << "Square of 5 = " << square(5) << endl;  
+    cout << "Square of 7 = " << square(7) << endl;  
+    return 0;
+}
+```
+
+Inline is just request to the complier to go for code replacement , its completely the decision of the compiler.
+
+Compiler takes the decision based on the execution time of the function with respect to stack creation time and collapsing time.
+
+If a function body contains the nested and complicated loops goto ,continue, return, called recursively can never be consider a inline function.
+
 ## Inheritance :
 Inheritance allows one class to reuse attributes and methods from another class. It helps you write cleaner, more efficient code by avoiding duplication.
 
@@ -1290,9 +1346,7 @@ Function overriding is the mechanism using which a function defined in the base 
 
 ### Requirements for Overriding a Function
 - Inheritance should be there. Function overriding cannot be done within a class. For this we require a derived class and a base class.
-- Function that is redefined must have exactly the same declaration in
-both base and derived class, that means same name, same return
-type and same type of input arguments .
+- Function that is redefined must have exactly the same declaration in both base and derived class, that means same name, same return type and same type of input arguments .
 
 ## Compile time polymorphism :
 If function symbols are resolved at compile time, it is called compile time polymorphism.
@@ -1331,7 +1385,7 @@ To implement the run time polymorphism we need hierarchical inheritance
 
 parent pointer
 
-## vitual functions
+## virtual functions
 A virtual function is a member function in the base class that can be overridden in derived classes.
 
 Virtual functions are a key part of polymorphism in C++. They let different objects respond differently to the same function call.
@@ -1467,7 +1521,7 @@ int main(){
 }
 ```
 
-Example for function templates :
+Example for class templates :
 
 ```cpp
 #include<iostream>
