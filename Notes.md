@@ -384,6 +384,8 @@ int add(int ,int =0,int =0);
 - simillarly ,to make 'a' as default argument 'b' and 'c' must be a default argument.
 - Whybecause mapping of actual arguments to formal arguments are done from left to right.
 
+
+
 ## Function Overloading :
  Function overloading is a compile time polymorphism which is used to give same name to more than one function with different signatures.
 
