@@ -1872,7 +1872,59 @@ Each element (node) contains:
 
 Because of this structure, insertion and deletion is very fast anywhere in the list.
 
+```cpp
+#include<iostream>
+#include<list>
+using namespace std;
+int main(){
 
+        list<int> li = {10,20,30};
+
+        auto ti = li.begin();
+
+        advance(ti,2);
+
+        cout<<*ti<<endl;
+
+        for(int i : li){
+                cout<<i<<" ";
+        }
+        cout<<endl;
+
+        li.push_back(12);
+        li.push_front(13);
+        li.pop_back();
+
+         for(int i : li){
+                cout<<i<<" ";
+        }
+        cout<<endl;
+        auto t=li.begin();
+
+        advance(t,0);
+        li.insert(ti,90);
+
+        advance(ti,-1);
+        cout<<"updated value:"<<*ti<<endl;
+
+         for(int i : li){
+                cout<<i<<" ";
+        }
+        cout<<endl;
+}
+```
+
+## Stack :
+
+A Stack is a data structure that stores elements in a Last In First Out (LIFO) order.
+
+C++ provides a built-in stack container in <stack> header.
+
+Syntax :
+```cpp
+#include <stack>
+stack<int> st;   // stack of integers
+```
 
 
 
