@@ -2039,18 +2039,132 @@ int main(){
 
         cout<<"Size : "<<deq.size()<<endl;
 
-        while(!deq.empty()){
+        /*while(!deq.empty()){
                 cout<<deq.front()<<" ";
                 deq.pop_front();
+        }*/
+        for(int i=0;i<deq.size();i++){
+                cout<<deq[i]<<" ";
         }
 
         cout<<endl;
 }
 ```
 
+## Set :
+
+A Set is a data structure that stores unique elements in sorted order.
+
+Duplicate values are not allowed
+
+Elements are automatically sorted (ascending by default)
+
+### Syntax :
+```cpp
+#include<set>
+set<datatype> setvaraible;
+```
+
+- Important Operations 
+
+| Operation       | Function                | Description                 |
+| --------------- | ----------------------- | --------------------------- |
+| Insert          | `insert(x)`             | Adds element (unique only)  |
+| Delete          | `erase(x)`              | Removes specific element    |
+| Check existence | `find(x)` or `count(x)` | Searches for element        |
+| Size            | `size()`                | Number of elements          |
+| First element   | `begin()`               | Iterator to smallest        |
+| Last element    | `rbegin()`              | Iterator to largest         |
+| Empty check     | `empty()`               | True if set has no elements |
+| Clear           | `clear()`               | Removes all elements        |
+
+- Example :
+
+```cpp
+#include<iostream>
+#include<set>
+using namespace std;
+int main(){
+        set<int> s;
+        s.insert(10);
+        s.insert(20);
+        s.insert(30);
+        s.insert(40);
+        s.insert(50);
+        for(int i:s){
+                cout<<i<<" ";
+        }
+        cout<<endl;
+        s.erase(30);
+        for(int i:s){
+                cout<<i<<" ";
+        }
+        cout<<endl;
+        cout<<"Last element : "<<*s.rbegin()<<endl;
+
+        for(auto i=s.rbegin();i!=s.rend();i++)
+        {
+                cout<<*i<<" ";
+        }
+        cout<<endl;
+}
+```
+
+## Maps :
+
+A map is a container in C++ STL that stores data in key–value pairs.
+
+Each key is unique
+
+Values can repeat
+
+Data is automatically sorted by key (ascending order)
+
+Fast searching, insertion, deletion.
+
+### Syntax :
+```cpp
+#include <map>
+map<int, string> mp;
+```
+
+- Important Operations :
+  
+| Function               | Use                                 |          |
+| ---------------------- | ----------------------------------- | -------- |
+| `mp[key] = value`      | Insert or update                    |          |
+| `insert({key, value})` | Insert only                         |          |
+| `erase(key)`           | Delete by key                       |          |
+| `find(key)`            | Searches for key (returns iterator) |          |
+| `count(key)`           | 1 if exists                         | 0 if not |
+| `size()`               | Number of elements                  |          |
+| `clear()`              | Removes all                         |          |
+| `empty()`              | Check empty                         |          |
 
 
- 
+ - Example :
+```cpp
+#include<iostream>
+#include<map>
+using namespace std;
+int main(){
+        map<int,string> mp;
+
+        mp[101]="sravani";
+        mp[102]="sai";
+        mp[103]="venkat";
+        mp[104]="satya";
+        mp[105]="narayan";
+
+        for(auto i : mp){
+                cout<<i.first << "->" <<i.second<<endl;
+        }
+
+        cout<<endl;
+}
+```
+
+## 
 
 
 
