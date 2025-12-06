@@ -1920,15 +1920,133 @@ A Stack is a data structure that stores elements in a Last In First Out (LIFO) o
 
 C++ provides a built-in stack container in <stack> header.
 
-Syntax :
+### Syntax :
 ```cpp
 #include <stack>
 stack<int> st;   // stack of integers
 ```
 
+- Important Operations :
+
+| Function  | Work                                      |
+| --------- | ----------------------------------------- |
+| `push(x)` | Insert element on top of stack            |
+| `pop()`   | Remove the top element                    |
+| `top()`   | Returns the top element (does not remove) |
+| `size()`  | Returns number of elements                |
+| `empty()` | Checks if stack is empty or not           |
+
+```cpp
+#include<iostream>
+#include<stack>
+using namespace std;
+int main(){
+        stack<int> s ;
+        s.push(10);
+        s.push(20);
+        s.push(30);
+        cout<<"stack size : "<<s.size()<<endl;
+        while(!s.empty()){
+                cout<<s.top()<<" ";
+                s.pop();
+        }
+        cout<<endl;
+}
+```
 
 
+##  Queues :
 
+A Queue is a data structure that stores elements in First In First Out (FIFO) order.
+
+C++ provides a built-in queue container in <queue> header.
+
+### Syntax :
+```cpp
+#include <queue>
+queue<int> q;   // queue of integers
+```
+
+- Important Operations
+
+| Function  | Work                          |
+| --------- | ----------------------------- |
+| `push(x)` | Insert element at the **end** |
+| `pop()`   | Remove the **front** element  |
+| `front()` | Returns the first element     |
+| `back()`  | Returns the last element      |
+| `size()`  | Returns number of elements    |
+| `empty()` | Checks if queue is empty      |
+
+```cpp
+#include<iostream>
+#include<queue>
+using namespace std;
+int main(){
+        queue<int> q;
+        q.push(10);
+        q.push(20);
+        q.push(30);
+        q.push(40);
+        q.push(50);
+        cout<<"size : "<<q.size()<<endl;
+        while(!q.empty()){
+                cout<<q.front()<<" ";
+                q.pop();
+        }
+        cout<<endl;
+}
+```
+
+## Dequeue :
+
+Deque stands for Double Ended QUEue.
+
+It is a data structure where you can insert and remove elements from both front and back.
+
+It combines features of both stack and queue.
+
+### Syntax :
+```cpp
+#include <deque>
+deque<int> dq;   // deque of integers
+```
+
+- Important Operations :
+  
+| Function        | Work                      |
+| --------------- | ------------------------- |
+| `push_back(x)`  | insert element at **end** |
+| `push_front(x)` | insert at **front**       |
+| `pop_back()`    | remove from **end**       |
+| `pop_front()`   | remove from **front**     |
+| `front()`       | get first element         |
+| `back()`        | get last element          |
+| `size()`        | number of elements        |
+| `empty()`       | check if empty            |
+| `at(i)`         | access element at index i |
+
+- Example :
+  
+```cpp
+#include<iostream>
+#include<deque>
+using namespace std;
+int main(){
+        deque<int> deq;
+        deq.push_front(10);
+        deq.push_back(20);
+
+        cout<<"Size : "<<deq.size()<<endl;
+
+        while(!deq.empty()){
+                cout<<deq.front()<<" ";
+                deq.pop_front();
+        }
+
+        cout<<endl;
+}
+```
 
 
 
