@@ -269,7 +269,7 @@ int main() {
 
 ```
 
-#### call by reference :
+### call by reference :
 In call by reference ,formal arguments are references of the actual arguments, so formal arguments doesnot consume extra memory they refer to the actual arguments memoty blocks .so,whatever we modify on formal arguments they reflect on actual arguments.
 
 Function call,function definition are same as call by value.
